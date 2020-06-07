@@ -210,6 +210,8 @@ with open(my_file, 'r') as f:
 
     print('\n')
     print("Soma total do tempo das dicas(em segundos): ", time_soma_total)
+    print("Soma total do tempo das dicas(em segundos) / número de alunos do grupo controle: ",
+          (time_soma_total/97))
     print("Quantidade total de erros do grupo controle: ", quantidade_erros_TOTAL)
     print("Quantidade de erros do grupo controle / número de alunos do grupo controle: ",
           (quantidade_erros_TOTAL/97))
