@@ -1,9 +1,7 @@
-1 4068 2019-3-25 19:20:30.854#dica_bullet#SyntaxError: invalid syntax
-19 4322 2019-3-20 18:22:02.327#dica_bullet#NameError: name 'NOME_DA_VARIAVEL' is not defined
-9 4322 2019-3-20 18:57:57.875#dica_open#SyntaxError: invalid syntax
-10 4322 2019-3-20 18:57:58.753#dica_close#
+2 4057 2019-3-22 17:27:37.323#saida_testar#$ python3 main.py SyntaxError: invalid syntax
+1 4057 2019-5-2 22:16:26.294#dica_bullet#NameError: name 'NOME_DA_VARIAVEL' is not defined
+1 4057 2019-3-22 15:30:43.997#dica_bullet#SyntaxError: invalid syntax
+2 4057 2019-3-22 15:30:44.301#saida_testar#$ python3 main.py SyntaxError: invalid syntax
+3 4057 2019-3-22 15:30:59.970#dica_open#SyntaxError: invalid syntax
+4 4057 2019-3-22 15:31:01.735#dica_close#
 sequencia
-1 4068 2019-3-25 19:20:30.854#dica_bullet#SyntaxError: invalid syntax
-19 4322 2019-3-20 18:22:02.327#dica_bullet#NameError: name 'NOME_DA_VARIAVEL' is not defined
-9 4322 2019-3-20 18:57:57.875#dica_open#SyntaxError: invalid syntax
-10 4322 2019-3-20 18:57:58.753#dica_close#
