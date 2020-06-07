@@ -14,7 +14,49 @@ id_traducao = [
 my_file = 'error_samples.txt'
 time_soma_total = 0
 lista_traducao = []
-lista_erros = []
+
+# Creating variables for quantity and number of occurences of each error
+# --------------------------------------
+SyntaxErrorInvalid_quantidade = 0
+SyntaxErrorInvalid_tempo = 0
+
+NameError_quantidade = 0
+NameError_tempo = 0
+
+SyntaxErrorUnexpected_quantidade = 0
+SyntaxErrorUnexpected_tempo = 0
+
+IndentationErrorBlock_quantidade = 0
+IndentationErrorBlock_tempo = 0
+
+IndentationErrorUnexpected_quantidade = 0
+IndentationErrorUnexpected_tempo = 0
+
+IndentationErrorUnindent_quantidade = 0
+IndentationErrorUnindent_tempo = 0
+
+TabErrorInconsistent_quantidade = 0
+TabErrorInconsistent_tempo = 0
+
+ValueErrorInvalid_quantidade = 0
+ValueErrorInvalid_tempo = 0
+
+TypeErrorUnsuported_quantidade = 0
+TypeErrorUnsuported_tempo = 0
+
+TypeErrorCant_quantidade = 0
+TypeErrorCant_tempo = 0
+
+IndexErrorIndex_quantidade = 0
+IndexErrorIndex_tempo = 0
+
+ZeroDivisionErrorDivision_quantidade = 0
+ZeroDivisionErrorDivision_tempo = 0
+
+ZeroDivisionErrorFloat_quantidade = 0
+ZeroDivisionErrorFloat_tempo = 0
+# --------------------------------------
+
 
 with open(my_file, 'r') as f:
     for line in f:
@@ -29,8 +71,8 @@ with open(my_file, 'r') as f:
                 time_open = line.split('#')[0]
                 time_open_certo = time_open.split(" ")[3]
                 time_open_certo = datetime.strptime(time_open_certo, fmt)
-                print(erro)
-                print(time_open_certo)
+                # print(erro)
+                # print(time_open_certo)
 
             elif 'dica_close' in line:
                 time_close = line.split('#')[0]
@@ -38,10 +80,63 @@ with open(my_file, 'r') as f:
                 time_close_certo = datetime.strptime(time_close_certo, fmt)
                 time_total_parcial = (time_close_certo -
                                       time_open_certo).total_seconds()
-                print(time_close_certo)
+                # print(time_close_certo)
                 print("###", time_total_parcial)
+
                 if(time_total_parcial > 0):
                     time_soma_total = time_soma_total + time_total_parcial
+                    if('SyntaxError: invalid syntax' in line):
+                        SyntaxErrorInvalid_quantidade = SyntaxErrorInvalid_quantidade + 1
+                        SyntaxErrorInvalid_tempo = SyntaxErrorInvalid_tempo + time_total_parcial
+
+                    elif('NameError: name' in line):
+                        NameError_quantidade = NameError_quantidade + 1
+                        NameError_tempo = NameError_tempo + time_total_parcial
+
+                    elif('SyntaxError: unexpected EOF while parsing' in line):
+                        SyntaxErrorUnexpected_quantidade = SyntaxErrorUnexpected_quantidade + 1
+                        SyntaxErrorUnexpected_tempo = SyntaxErrorUnexpected_tempo + time_total_parcial
+
+                    elif('IndentationError: expected an indented block' in line):
+                        IndentationErrorBlock_quantidade = IndentationErrorBlock_quantidade + 1
+                        IndentationErrorBlock_tempo = IndentationErrorBlock_tempo + time_total_parcial
+
+                    elif('IndentationError: unexpected indent' in line):
+                        IndentationErrorUnexpected_quantidade = IndentationErrorUnexpected_quantidade + 1
+                        IndentationErrorUnexpected_tempo = IndentationErrorUnexpected_tempo + time_total_parcial
+
+                    elif('IndentationError: unindent' in line):
+                        IndentationErrorUnindent_quantidade = IndentationErrorUnindent_quantidade + 1
+                        IndentationErrorUnindent_tempo = IndentationErrorUnindent_tempo + time_total_parcial
+
+                    elif('TabError: inconsistent use' in line):
+                        TabErrorInconsistent_quantidade = TabErrorInconsistent_quantidade + 1
+                        TabErrorInconsistent_tempo = TabErrorInconsistent_tempo + time_total_parcial
+
+                    elif('ValueError: invalid literal for int() with base 10' in line):
+                        ValueErrorInvalid_quantidade = ValueErrorInvalid_quantidade + 1
+                        ValueErrorInvalid_tempo = ValueErrorInvalid_tempo + time_total_parcial
+
+                    elif('TypeError: unsupported operand type' in line):
+                        TypeErrorUnsuported_quantidade = TypeErrorUnsuported_quantidade + 1
+                        TypeErrorUnsuported_tempo = TypeErrorUnsuported_tempo + time_total_parcial
+
+                    elif('TypeError: can' in line):
+                        TypeErrorCant_quantidade = TypeErrorCant_quantidade + 1
+                        TypeErrorCant_tempo = TypeErrorCant_tempo + time_total_parcial
+
+                    elif('IndexError: index' in line):
+                        IndexErrorIndex_quantidade = IndexErrorIndex_quantidade + 1
+                        IndexErrorIndex_tempo = IndexErrorIndex_tempo + time_total_parcial
+
+                    elif('ZeroDivisionError: division by zero' in line):
+                        ZeroDivisionErrorDivision_quantidade = ZeroDivisionErrorDivision_quantidade + 1
+                        ZeroDivisionErrorDivision_tempo = ZeroDivisionErrorDivision_tempo + time_total_parcial
+
+                    elif('ZeroDivisionError: float division by zero' in line):
+                        ZeroDivisionErrorFloat_quantidade = ZeroDivisionErrorFloat_quantidade + 1
+                        ZeroDivisionErrorFloat_tempo = ZeroDivisionErrorFloat_tempo + time_total_parcial
+
                 print(time_soma_total)
 
             a = line.split()
