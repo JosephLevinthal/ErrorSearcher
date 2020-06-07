@@ -57,6 +57,20 @@ ZeroDivisionErrorDivision_tempo = 0
 ZeroDivisionErrorFloat_quantidade = 0
 ZeroDivisionErrorFloat_tempo = 0
 # --------------------------------------
+SyntaxErrorInvalid_quantidade_ERROS = 0
+NameError_quantidade_ERROS = 0
+SyntaxErrorUnexpected_quantidade_ERROS = 0
+IndentationErrorBlock_quantidade_ERROS = 0
+IndentationErrorUnexpected_quantidade_ERROS = 0
+IndentationErrorUnindent_quantidade_ERROS = 0
+TabErrorInconsistent_quantidade_ERROS = 0
+ValueErrorInvalid_quantidade_ERROS = 0
+TypeErrorUnsuported_quantidade_ERROS = 0
+TypeErrorCant_quantidade_ERROS = 0
+IndexErrorIndex_quantidade_ERROS = 0
+ZeroDivisionErrorDivision_quantidade_ERROS = 0
+ZeroDivisionErrorFloat_quantidade_ERROS = 0
+# --------------------------------------
 
 with open(my_file, 'r') as f:
     for line in f:
@@ -137,78 +151,140 @@ with open(my_file, 'r') as f:
                 time_final_da_dica = (
                     time_close_certo - time_open_certo).total_seconds()
 
+            elif 'saida_testar' in line:
+                if('SyntaxError: invalid syntax' in line):
+                    SyntaxErrorInvalid_quantidade_ERROS = SyntaxErrorInvalid_quantidade_ERROS + 1
+
+                elif('NameError: name' in line):
+                    NameError_quantidade_ERROS = NameError_quantidade_ERROS + 1
+
+                elif('SyntaxError: unexpected EOF while parsing' in line):
+                    SyntaxErrorUnexpected_quantidade_ERROS = SyntaxErrorUnexpected_quantidade_ERROS + 1
+
+                elif('IndentationError: expected an indented block' in line):
+                    IndentationErrorBlock_quantidade_ERROS = IndentationErrorBlock_quantidade_ERROS + 1
+
+                elif('IndentationError: unexpected indent' in line):
+                    IndentationErrorUnexpected_quantidade_ERROS = IndentationErrorUnexpected_quantidade_ERROS + 1
+
+                elif('IndentationError: unindent' in line):
+                    IndentationErrorUnindent_quantidade_ERROS = IndentationErrorUnindent_quantidade_ERROS + 1
+
+                elif('TabError: inconsistent use' in line):
+                    TabErrorInconsistent_quantidade_ERROS = TabErrorInconsistent_quantidade_ERROS + 1
+
+                elif('ValueError: invalid literal for int() with base 10' in line):
+                    ValueErrorInvalid_quantidade_ERROS = ValueErrorInvalid_quantidade_ERROS + 1
+
+                elif('TypeError: unsupported operand type' in line):
+                    TypeErrorUnsuported_quantidade_ERROS = TypeErrorUnsuported_quantidade_ERROS + 1
+
+                elif('TypeError: can' in line):
+                    TypeErrorCant_quantidade_ERROS = TypeErrorCant_quantidade_ERROS + 1
+
+                elif('IndexError: index' in line):
+                    IndexErrorIndex_quantidade_ERROS = IndexErrorIndex_quantidade_ERROS + 1
+
+                elif('ZeroDivisionError: division by zero' in line):
+                    ZeroDivisionErrorDivision_quantidade_ERROS = ZeroDivisionErrorDivision_quantidade_ERROS + 1
+
+                elif('ZeroDivisionError: float division by zero' in line):
+                    ZeroDivisionErrorFloat_quantidade_ERROS = ZeroDivisionErrorFloat_quantidade_ERROS + 1
+
             a = line.split()
             lista_traducao.append(a)
 
     print("Soma total do tempo das dicas: ", time_soma_total)
     print('\n')
 
-
 # Prints para o relatório final dos tempos
-    print("Número de Erros: SyntaxErrorInvalid: ",
-          SyntaxErrorInvalid_quantidade)
-    print("SyntaxErrorInvalid_tempo: ",
-          SyntaxErrorInvalid_tempo)
-    print('\n')
+print('SyntaxErrorInvalid_quantidade_ERROS: ',
+      SyntaxErrorInvalid_quantidade_ERROS)
+print("Aberturas de dicas - SyntaxErrorInvalid: ",
+      SyntaxErrorInvalid_quantidade)
+print("SyntaxErrorInvalid_tempo: ",
+      SyntaxErrorInvalid_tempo)
+print('\n')
 
-    print("Número de Erros: NameError_quantidade: ", NameError_quantidade)
-    print("NameError_tempo: ", NameError_tempo)
-    print('\n')
+print("NameError_quantidade_ERROS: ", NameError_quantidade_ERROS)
+print("Aberturas de dicas - NameError_quantidade: ", NameError_quantidade)
+print("NameError_tempo: ", NameError_tempo)
+print('\n')
 
-    print("Número de Erros: SyntaxErrorUnexpected: ",
-          SyntaxErrorUnexpected_quantidade)
-    print("SyntaxErrorUnexpected_tempo: ", SyntaxErrorUnexpected_tempo)
-    print('\n')
+print("SyntaxErrorUnexpected_quantidade_ERROS: ",
+      SyntaxErrorUnexpected_quantidade_ERROS)
+print("Aberturas de dicas - SyntaxErrorUnexpected: ",
+      SyntaxErrorUnexpected_quantidade)
+print("SyntaxErrorUnexpected_tempo: ", SyntaxErrorUnexpected_tempo)
+print('\n')
 
-    print("Número de Erros: IndentationErrorBlock: ",
-          IndentationErrorBlock_quantidade)
-    print("IndentationErrorBlock_tempo: ", IndentationErrorBlock_tempo)
-    print('\n')
+print("IndentationErrorBlock_quantidade_ERROS: ",
+      IndentationErrorBlock_quantidade_ERROS)
+print("Aberturas de dicas - IndentationErrorBlock: ",
+      IndentationErrorBlock_quantidade)
+print("IndentationErrorBlock_tempo: ", IndentationErrorBlock_tempo)
+print('\n')
 
-    print("Número de Erros: IndentationErrorUnexpected: ",
-          IndentationErrorUnexpected_quantidade)
-    print("IndentationErrorUnexpected_tempo: ",
-          IndentationErrorUnexpected_tempo)
-    print('\n')
+print("IndentationErrorUnexpected_quantidade_ERROS: ",
+      IndentationErrorUnexpected_quantidade_ERROS)
+print("Aberturas de dicas - IndentationErrorUnexpected: ",
+      IndentationErrorUnexpected_quantidade)
+print("IndentationErrorUnexpected_tempo: ",
+      IndentationErrorUnexpected_tempo)
+print('\n')
 
-    print("Número de Erros: IndentationErrorUnindent: ",
-          IndentationErrorUnindent_quantidade)
-    print("IndentationErrorUnindent_tempo: ", IndentationErrorUnindent_tempo)
-    print('\n')
+print("IndentationErrorUnindent_quantidade_ERROS: ",
+      IndentationErrorUnindent_quantidade_ERROS)
+print("Aberturas de dicas - IndentationErrorUnindent: ",
+      IndentationErrorUnindent_quantidade)
+print("IndentationErrorUnindent_tempo: ", IndentationErrorUnindent_tempo)
+print('\n')
 
-    print("Número de Erros: TabErrorInconsistent: ",
-          TabErrorInconsistent_quantidade)
-    print("TabErrorInconsistent_tempo: ", TabErrorInconsistent_tempo)
-    print('\n')
+print("TabErrorInconsistent_quantidade_ERROS: ",
+      TabErrorInconsistent_quantidade_ERROS)
+print("Aberturas de dicas - TabErrorInconsistent: ",
+      TabErrorInconsistent_quantidade)
+print("TabErrorInconsistent_tempo: ", TabErrorInconsistent_tempo)
+print('\n')
 
-    print("Número de Erros: ValueErrorInvalid: ",
-          ValueErrorInvalid_quantidade)
-    print("ValueErrorInvalid_tempo: ", ValueErrorInvalid_tempo)
-    print('\n')
+print("ValueErrorInvalid_quantidade_ERROS: ",
+      ValueErrorInvalid_quantidade_ERROS)
+print("Aberturas de dicas - ValueErrorInvalid: ",
+      ValueErrorInvalid_quantidade)
+print("ValueErrorInvalid_tempo: ", ValueErrorInvalid_tempo)
+print('\n')
 
-    print("Número de Erros: TypeErrorUnsuported: ",
-          TypeErrorUnsuported_quantidade)
-    print("TypeErrorUnsuported_tempo: ", TypeErrorUnsuported_tempo)
-    print('\n')
+print("TypeErrorUnsuported_quantidade_ERROS: ",
+      TypeErrorUnsuported_quantidade_ERROS)
+print("Aberturas de dicas - TypeErrorUnsuported: ",
+      TypeErrorUnsuported_quantidade)
+print("TypeErrorUnsuported_tempo: ", TypeErrorUnsuported_tempo)
+print('\n')
 
-    print("Número de Erros: TypeErrorCant: ", TypeErrorCant_quantidade)
-    print("TypeErrorCant_tempo: ", TypeErrorCant_tempo)
-    print('\n')
+print("TypeErrorCant_quantidade_ERROS: ", TypeErrorCant_quantidade_ERROS)
+print("Aberturas de dicas - TypeErrorCant: ", TypeErrorCant_quantidade)
+print("TypeErrorCant_tempo: ", TypeErrorCant_tempo)
+print('\n')
 
-    print("Número de Erros: IndexErrorIndex: ",
-          IndexErrorIndex_quantidade)
-    print("IndexErrorIndex_tempo: ", IndexErrorIndex_tempo)
-    print('\n')
+print("IndexErrorIndex_quantidade_ERROS: ", IndexErrorIndex_quantidade_ERROS)
+print("Aberturas de dicas - IndexErrorIndex: ",
+      IndexErrorIndex_quantidade)
+print("IndexErrorIndex_tempo: ", IndexErrorIndex_tempo)
+print('\n')
 
-    print("Número de Erros: ZeroDivisionErrorDivision: ",
-          ZeroDivisionErrorDivision_quantidade)
-    print("ZeroDivisionErrorDivision_tempo: ", ZeroDivisionErrorDivision_tempo)
-    print('\n')
+print("ZeroDivisionErrorDivision_quantidade_ERROS: ",
+      ZeroDivisionErrorDivision_quantidade_ERROS)
+print("Aberturas de dicas - ZeroDivisionErrorDivision: ",
+      ZeroDivisionErrorDivision_quantidade)
+print("ZeroDivisionErrorDivision_tempo: ", ZeroDivisionErrorDivision_tempo)
+print('\n')
 
-    print("Número de Erros: ZeroDivisionErrorFloat: ",
-          ZeroDivisionErrorFloat_quantidade)
-    print("ZeroDivisionErrorFloat_tempo: ", ZeroDivisionErrorFloat_tempo)
-    print('\n')
+print("ZeroDivisionErrorFloat_quantidade_ERROS: ",
+      ZeroDivisionErrorFloat_quantidade_ERROS)
+print("Aberturas de dicas - ZeroDivisionErrorFloat: ",
+      ZeroDivisionErrorFloat_quantidade)
+print("ZeroDivisionErrorFloat_tempo: ", ZeroDivisionErrorFloat_tempo)
+print('\n')
 
 with open('saida_traducao.txt', 'w') as f2:
     for item in lista_traducao:
