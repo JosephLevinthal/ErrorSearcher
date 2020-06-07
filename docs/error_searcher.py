@@ -14,6 +14,7 @@ id_traducao = [  # 97 alunos
 my_file = 'saida.txt'
 time_final_da_dica = 0
 time_soma_total = 0
+soma_visualizacoes_dicas_total = 0
 quantidade_erros_TOTAL = 0
 lista_traducao = []
 
@@ -94,54 +95,67 @@ with open(my_file, 'r') as f:
                     if('SyntaxError: invalid syntax' in line):
                         SyntaxErrorInvalid_quantidade = SyntaxErrorInvalid_quantidade + 1
                         SyntaxErrorInvalid_tempo = SyntaxErrorInvalid_tempo + time_final_da_dica
+                        soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
                     elif('NameError: name' in line):
                         NameError_quantidade = NameError_quantidade + 1
                         NameError_tempo = NameError_tempo + time_final_da_dica
+                        soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
                     elif('SyntaxError: unexpected EOF while parsing' in line):
                         SyntaxErrorUnexpected_quantidade = SyntaxErrorUnexpected_quantidade + 1
                         SyntaxErrorUnexpected_tempo = SyntaxErrorUnexpected_tempo + time_final_da_dica
+                        soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
                     elif('IndentationError: expected an indented block' in line):
                         IndentationErrorBlock_quantidade = IndentationErrorBlock_quantidade + 1
                         IndentationErrorBlock_tempo = IndentationErrorBlock_tempo + time_final_da_dica
+                        soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
                     elif('IndentationError: unexpected indent' in line):
                         IndentationErrorUnexpected_quantidade = IndentationErrorUnexpected_quantidade + 1
                         IndentationErrorUnexpected_tempo = IndentationErrorUnexpected_tempo + time_final_da_dica
+                        soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
                     elif('IndentationError: unindent' in line):
                         IndentationErrorUnindent_quantidade = IndentationErrorUnindent_quantidade + 1
                         IndentationErrorUnindent_tempo = IndentationErrorUnindent_tempo + time_final_da_dica
+                        soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
                     elif('TabError: inconsistent use' in line):
                         TabErrorInconsistent_quantidade = TabErrorInconsistent_quantidade + 1
                         TabErrorInconsistent_tempo = TabErrorInconsistent_tempo + time_final_da_dica
+                        soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
                     elif('ValueError: invalid literal for int() with base 10' in line):
                         ValueErrorInvalid_quantidade = ValueErrorInvalid_quantidade + 1
                         ValueErrorInvalid_tempo = ValueErrorInvalid_tempo + time_final_da_dica
+                        soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
                     elif('TypeError: unsupported operand type' in line):
                         TypeErrorUnsuported_quantidade = TypeErrorUnsuported_quantidade + 1
                         TypeErrorUnsuported_tempo = TypeErrorUnsuported_tempo + time_final_da_dica
+                        soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
                     elif('TypeError: can' in line):
                         TypeErrorCant_quantidade = TypeErrorCant_quantidade + 1
                         TypeErrorCant_tempo = TypeErrorCant_tempo + time_final_da_dica
+                        soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
                     elif('IndexError: index' in line):
                         IndexErrorIndex_quantidade = IndexErrorIndex_quantidade + 1
                         IndexErrorIndex_tempo = IndexErrorIndex_tempo + time_final_da_dica
+                        soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
                     elif('ZeroDivisionError: division by zero' in line):
                         ZeroDivisionErrorDivision_quantidade = ZeroDivisionErrorDivision_quantidade + 1
                         ZeroDivisionErrorDivision_tempo = ZeroDivisionErrorDivision_tempo + time_final_da_dica
+                        soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
                     elif('ZeroDivisionError: float division by zero' in line):
                         ZeroDivisionErrorFloat_quantidade = ZeroDivisionErrorFloat_quantidade + 1
                         ZeroDivisionErrorFloat_tempo = ZeroDivisionErrorFloat_tempo + time_final_da_dica
+                        soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
                     time_final_da_dica = 0
 
@@ -209,6 +223,9 @@ with open(my_file, 'r') as f:
             lista_traducao.append(a)
 
     print('\n')
+    print('Soma total das visualizações das dicas: ',
+          soma_visualizacoes_dicas_total)
+
     print("Soma total do tempo das dicas(em segundos): ", time_soma_total)
     print("Soma total do tempo das dicas(em segundos) / número de alunos do grupo controle: ",
           (time_soma_total/97))
