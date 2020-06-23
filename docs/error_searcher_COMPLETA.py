@@ -11,12 +11,14 @@ id_traducao = [  # 97 alunos
     '1165', '2171', '3119', '3135', '3396', '3555', '3812', '3851', '3960', '3985', '3986', '3987', '3992', '3995', '3999', '4001', '4002', '4004', '4008', '4011', '4012', '4013', '4014', '4057', '4058', '4059', '4061', '4066', '4067', '4073', '4078', '4079', '4080', '4124', '4125', '4126', '4128', '4130', '4131', '4132', '4134', '4135', '4143', '4146', '4150', '4153', '4154', '4157', '4162', '4163', '4165', '4170', '4171', '4173', '4174', '4177', '4178', '4181', '4184', '4185', '4187', '4192', '4193', '4194', '4271', '4310', '4322', '4342', '4345', '4347', '4349', '4351', '4352', '4358', '4366', '4367', '4372', '4413', '4414', '4422', '4424', '4427', '4429', '4431', '4432', '4443', '4464', '4469', '4470', '4472', '4477', '4479', '4481', '4482', '4485', '4487', '4501',
 ]
 
+aluno_id = []
+
 my_file = 'saida.txt'
 time_final_da_dica = 0
 time_soma_total = 0
 soma_visualizacoes_dicas_total = 0
 quantidade_erros_TOTAL = 0
-lista_completa = []
+lista_traducao = []
 
 # Creating variables for quantity and number of occurences of each error
 # --------------------------------------
@@ -78,7 +80,7 @@ with open(my_file, 'r') as f:
     for line in f:
         if(line.startswith("sequencia")):
             a = line.split()
-            lista_completa.append(a)
+            lista_traducao.append(a)
 
         elif (line.split(" ")[1] in id_completa):
 
@@ -97,67 +99,209 @@ with open(my_file, 'r') as f:
                         SyntaxErrorInvalid_tempo = SyntaxErrorInvalid_tempo + time_final_da_dica
                         soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
+                        aluno_id.append(line.split(" ")[1])
+                        aluno_id.append("SyntaxError: invalid syntax")
+                        aluno_id.append(time_final_da_dica)
+                        aluno_id.append(time_final_da_dica / 1121)
+                        with open('saida_id_aluno.csv', 'a') as f2:
+                            for item in aluno_id:
+                                f2.write("%s, " % item)
+                            f2.write("\n")
+                        aluno_id = []
+
                     elif('NameError: name' in line):
                         NameError_quantidade = NameError_quantidade + 1
                         NameError_tempo = NameError_tempo + time_final_da_dica
                         soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
+
+                        aluno_id.append(line.split(" ")[1])
+                        aluno_id.append("NameError: name")
+                        aluno_id.append(time_final_da_dica)
+                        aluno_id.append(time_final_da_dica / 340)
+                        with open('saida_id_aluno.csv', 'a') as f2:
+                            for item in aluno_id:
+                                f2.write("%s, " % item)
+                            f2.write("\n")
+                        aluno_id = []
 
                     elif('SyntaxError: unexpected EOF while parsing' in line):
                         SyntaxErrorUnexpected_quantidade = SyntaxErrorUnexpected_quantidade + 1
                         SyntaxErrorUnexpected_tempo = SyntaxErrorUnexpected_tempo + time_final_da_dica
                         soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
+                        aluno_id.append(line.split(" ")[1])
+                        aluno_id.append(
+                            "SyntaxError: unexpected EOF while parsing")
+                        aluno_id.append(time_final_da_dica)
+                        aluno_id.append(time_final_da_dica / 297)
+                        with open('saida_id_aluno.csv', 'a') as f2:
+                            for item in aluno_id:
+                                f2.write("%s, " % item)
+                            f2.write("\n")
+                        aluno_id = []
+
                     elif('IndentationError: expected an indented block' in line):
                         IndentationErrorBlock_quantidade = IndentationErrorBlock_quantidade + 1
                         IndentationErrorBlock_tempo = IndentationErrorBlock_tempo + time_final_da_dica
                         soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
+
+                        aluno_id.append(line.split(" ")[1])
+                        aluno_id.append(
+                            "IndentationError: expected an indented block")
+                        aluno_id.append(time_final_da_dica)
+                        aluno_id.append(time_final_da_dica / 548)
+                        with open('saida_id_aluno.csv', 'a') as f2:
+                            for item in aluno_id:
+                                f2.write("%s, " % item)
+                            f2.write("\n")
+                        aluno_id = []
 
                     elif('IndentationError: unexpected indent' in line):
                         IndentationErrorUnexpected_quantidade = IndentationErrorUnexpected_quantidade + 1
                         IndentationErrorUnexpected_tempo = IndentationErrorUnexpected_tempo + time_final_da_dica
                         soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
+                        aluno_id.append(line.split(" ")[1])
+                        aluno_id.append(
+                            "IndentationError: unexpected indent")
+                        aluno_id.append(time_final_da_dica)
+                        aluno_id.append(time_final_da_dica / 276)
+                        with open('saida_id_aluno.csv', 'a') as f2:
+                            for item in aluno_id:
+                                f2.write("%s, " % item)
+                            f2.write("\n")
+                        aluno_id = []
+
                     elif('IndentationError: unindent' in line):
                         IndentationErrorUnindent_quantidade = IndentationErrorUnindent_quantidade + 1
                         IndentationErrorUnindent_tempo = IndentationErrorUnindent_tempo + time_final_da_dica
                         soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
+
+                        aluno_id.append(line.split(" ")[1])
+                        aluno_id.append(
+                            "IndentationError: unindent")
+                        aluno_id.append(time_final_da_dica)
+                        aluno_id.append(time_final_da_dica / 493)
+                        with open('saida_id_aluno.csv', 'a') as f2:
+                            for item in aluno_id:
+                                f2.write("%s, " % item)
+                            f2.write("\n")
+                        aluno_id = []
 
                     elif('TabError: inconsistent use' in line):
                         TabErrorInconsistent_quantidade = TabErrorInconsistent_quantidade + 1
                         TabErrorInconsistent_tempo = TabErrorInconsistent_tempo + time_final_da_dica
                         soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
+                        aluno_id.append(line.split(" ")[1])
+                        aluno_id.append(
+                            "TabError: inconsistent use")
+                        aluno_id.append(time_final_da_dica)
+                        aluno_id.append(time_final_da_dica / 467)
+                        with open('saida_id_aluno.csv', 'a') as f2:
+                            for item in aluno_id:
+                                f2.write("%s, " % item)
+                            f2.write("\n")
+                        aluno_id = []
+
                     elif('ValueError: invalid literal for int() with base 10' in line):
                         ValueErrorInvalid_quantidade = ValueErrorInvalid_quantidade + 1
                         ValueErrorInvalid_tempo = ValueErrorInvalid_tempo + time_final_da_dica
                         soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
+
+                        aluno_id.append(line.split(" ")[1])
+                        aluno_id.append(
+                            "ValueError: invalid literal for int() with base 10")
+                        aluno_id.append(time_final_da_dica)
+                        aluno_id.append(time_final_da_dica / 767)
+                        with open('saida_id_aluno.csv', 'a') as f2:
+                            for item in aluno_id:
+                                f2.write("%s, " % item)
+                            f2.write("\n")
+                        aluno_id = []
 
                     elif('TypeError: unsupported operand type' in line):
                         TypeErrorUnsuported_quantidade = TypeErrorUnsuported_quantidade + 1
                         TypeErrorUnsuported_tempo = TypeErrorUnsuported_tempo + time_final_da_dica
                         soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
+                        aluno_id.append(line.split(" ")[1])
+                        aluno_id.append(
+                            "TypeError: unsupported operand type")
+                        aluno_id.append(time_final_da_dica)
+                        aluno_id.append(time_final_da_dica / 547)
+                        with open('saida_id_aluno.csv', 'a') as f2:
+                            for item in aluno_id:
+                                f2.write("%s, " % item)
+                            f2.write("\n")
+                        aluno_id = []
+
                     elif('TypeError: can' in line):
                         TypeErrorCant_quantidade = TypeErrorCant_quantidade + 1
                         TypeErrorCant_tempo = TypeErrorCant_tempo + time_final_da_dica
                         soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
+
+                        aluno_id.append(line.split(" ")[1])
+                        aluno_id.append(
+                            "TypeError: can")
+                        aluno_id.append(time_final_da_dica)
+                        aluno_id.append(time_final_da_dica / 197)
+                        with open('saida_id_aluno.csv', 'a') as f2:
+                            for item in aluno_id:
+                                f2.write("%s, " % item)
+                            f2.write("\n")
+                        aluno_id = []
 
                     elif('IndexError: index' in line):
                         IndexErrorIndex_quantidade = IndexErrorIndex_quantidade + 1
                         IndexErrorIndex_tempo = IndexErrorIndex_tempo + time_final_da_dica
                         soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
+                        aluno_id.append(line.split(" ")[1])
+                        aluno_id.append(
+                            "IndexError: index")
+                        aluno_id.append(time_final_da_dica)
+                        aluno_id.append(time_final_da_dica / 519)
+                        with open('saida_id_aluno.csv', 'a') as f2:
+                            for item in aluno_id:
+                                f2.write("%s, " % item)
+                            f2.write("\n")
+                        aluno_id = []
+
                     elif('ZeroDivisionError: division by zero' in line):
                         ZeroDivisionErrorDivision_quantidade = ZeroDivisionErrorDivision_quantidade + 1
                         ZeroDivisionErrorDivision_tempo = ZeroDivisionErrorDivision_tempo + time_final_da_dica
                         soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
+
+                        aluno_id.append(line.split(" ")[1])
+                        aluno_id.append(
+                            "ZeroDivisionError: division by zero")
+                        aluno_id.append(time_final_da_dica)
+                        aluno_id.append(time_final_da_dica / 169)
+                        with open('saida_id_aluno.csv', 'a') as f2:
+                            for item in aluno_id:
+                                f2.write("%s, " % item)
+                            f2.write("\n")
+                        aluno_id = []
 
                     elif('ZeroDivisionError: float division by zero' in line):
                         ZeroDivisionErrorFloat_quantidade = ZeroDivisionErrorFloat_quantidade + 1
                         ZeroDivisionErrorFloat_tempo = ZeroDivisionErrorFloat_tempo + time_final_da_dica
                         soma_visualizacoes_dicas_total = soma_visualizacoes_dicas_total + 1
 
+                        aluno_id.append(line.split(" ")[1])
+                        aluno_id.append(
+                            "ZeroDivisionError: float division by zero")
+                        aluno_id.append(time_final_da_dica)
+                        aluno_id.append(time_final_da_dica / 169)
+                        with open('saida_id_aluno.csv', 'a') as f2:
+                            for item in aluno_id:
+                                f2.write("%s, " % item)
+                            f2.write("\n")
+                        aluno_id = []
+
                     time_final_da_dica = 0
+                    lista_traducao.append(a)
 
             elif 'dica_close' in line:
                 time_close = line.split('#')[0]
@@ -220,20 +364,20 @@ with open(my_file, 'r') as f:
                     quantidade_erros_TOTAL = quantidade_erros_TOTAL + 1
 
             a = line.split()
-            lista_completa.append(a)
+            lista_traducao.append(a)
 
     print('\n')
     print('Soma total das visualizações das dicas: ',
           soma_visualizacoes_dicas_total)
-    print('Soma total das visualizações das dicas / número de alunos do grupo completa: ',
-          soma_visualizacoes_dicas_total / 82)
+    print('Soma total das visualizações das dicas / número de alunos do grupo traducao: ',
+          soma_visualizacoes_dicas_total / 97)
 
     print("Soma total do tempo das dicas(em segundos): ", time_soma_total)
-    print("Soma total do tempo das dicas(em segundos) / número de alunos do grupo completa: ",
-          (time_soma_total/82))
-    print("Quantidade total de erros do grupo completa: ", quantidade_erros_TOTAL)
-    print("Quantidade de erros do grupo controle / número de alunos do grupo completa: ",
-          (quantidade_erros_TOTAL/82))
+    print("Soma total do tempo das dicas(em segundos) / número de alunos do grupo traducao: ",
+          (time_soma_total/97))
+    print("Quantidade total de erros do grupo traducao: ", quantidade_erros_TOTAL)
+    print("Quantidade de erros do grupo traducao / número de alunos do grupo traducao: ",
+          (quantidade_erros_TOTAL/97))
     print('\n')
 
 # Prints para o relatório final dos tempos
@@ -325,6 +469,4 @@ print("Aberturas de dicas - ZeroDivisionErrorFloat: ",
 print("ZeroDivisionErrorFloat_tempo: ", ZeroDivisionErrorFloat_tempo)
 print('\n')
 
-with open('saida_traducao.txt', 'w') as f2:
-    for item in lista_completa:
-        f2.write("%s\n" % item)
+print(aluno_id)
